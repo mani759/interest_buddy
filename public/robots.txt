@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://interest-buddy.vercel.app/sitemap.xml
