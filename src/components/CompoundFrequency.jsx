@@ -1,7 +1,7 @@
 const CompoundFrequency = ({ frequency, setFrequency, t }) => {
   return (
-    <div className="space-y-2">
-      <label className="block text-sm font-semibold text-slate-700">
+    <div className="space-y-3 mb-5 mt-3">
+      <label className="block text-[15px] font-bold leading-6 text-slate-800">
         {t.frequency}:
       </label>
 

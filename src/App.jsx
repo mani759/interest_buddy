@@ -4,6 +4,7 @@ import CalculatorSelector from "./components/CalculatorSelector";
 import SimpleInterest from "./calculators/SimpleInterest";
 import CompoundInterest from "./calculators/CompoundInterest";
 import translations from "./translations/translations";
+import LanguageSelector from "./components/LanguageSelector.jsx";
 
 function App() {
   const [CalculatorType, setCalculatorType] = useState("simple");
@@ -12,7 +13,10 @@ function App() {
   const t = translations[language];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 px-4 py-5 sm:px-6">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-violet-50 px-4 py-5 sm:px-6">
+      <div className="pointer-events-none fixed -left-24 -top-24 h-72 w-72 rounded-full bg-indigo-300/20 blur-3xl" />
+
+      <div className="pointer-events-none fixed -bottom-24 -right-24 h-72 w-72 rounded-full bg-violet-300/20 blur-3xl" />
       <div className="mx-auto w-full max-w-xl">
         {/* Top bar */}
         <div className="mb-10 flex items-center justify-between">
@@ -25,17 +29,7 @@ function App() {
           </div>
 
           <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-sm">
-            <span className="text-sm">🌐</span>
-
-            <select
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-              className="cursor-pointer bg-transparent text-sm font-medium text-slate-700 outline-none"
-            >
-              <option value="en">English</option>
-              <option value="te">తెలుగు</option>
-              <option value="hi">हिन्दी</option>
-            </select>
+            <LanguageSelector language={language} setLanguage={setLanguage} />
           </div>
         </div>
 
@@ -43,7 +37,7 @@ function App() {
         <Header t={t} />
 
         {/* Calculator */}
-        <main className="mt-7 rounded-3xl border border-slate-200 bg-white p-4 shadow-[0_20px_60px_rgba(15,23,42,0.08)] sm:p-6">
+        <main className="mt-9 rounded-[28px] border border-white/80 bg-white/90 p-5 shadow-[0_25px_70px_rgba(79,70,229,0.10)] backdrop-blur sm:p-7">
           {/* Calculator selector */}
           <CalculatorSelector
             CalculatorType={CalculatorType}

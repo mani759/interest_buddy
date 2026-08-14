@@ -56,7 +56,9 @@ const CompoundInterest = ({ t }) => {
 
   return (
     <div>
-      <h2>{t.compoundInterest}</h2>
+      <h2 className="mb-7 flex justify-center text-3xl font-bold">
+        {t.compoundInterest}
+      </h2>
 
       <InputField
         label={t.principal}

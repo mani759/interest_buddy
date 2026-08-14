@@ -14,7 +14,7 @@ const DurationInput = ({ time, setTime, timeUnit, setTimeUnit, t }) => {
   };
 
   return (
-    <div>
+    <div className="mt-3">
       <label className="block text-sm font-semibold text-slate-700">
         {t.time}:
       </label>

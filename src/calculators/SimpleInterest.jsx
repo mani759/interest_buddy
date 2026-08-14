@@ -30,7 +30,9 @@ const SimpleInterest = ({ t }) => {
 
   return (
     <div>
-      <h2>{t.simpleInterest}</h2>
+      <h2 className="mb-7 flex justify-center text-3xl font-bold">
+        {t.simpleInterest}
+      </h2>
       <InputField
         label={t.principal}
         value={principal}
