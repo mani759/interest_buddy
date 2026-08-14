@@ -1,4 +1,4 @@
-const ResultCard = ({ result, t }) => {
+const ResultCard = ({ result, t, resultref }) => {
   if (!result) return null;
 
   const formatMoney = (value) => {
@@ -11,7 +11,10 @@ const ResultCard = ({ result, t }) => {
   };
 
   return (
-    <div className="mt-5 overflow-hidden rounded-3xl bg-slate-900 p-5 text-white shadow-xl shadow-slate-900/10 sm:p-6">
+    <div
+      ref={resultref}
+      className="mt-5 overflow-hidden rounded-3xl bg-slate-900 p-5 text-white shadow-xl shadow-slate-900/10 sm:p-6"
+    >
       <div className="mb-5 flex items-center justify-between">
         <div>
           <p className="text-xs font-medium uppercase tracking-widest text-slate-400">

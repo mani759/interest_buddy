@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import InputField from "../components/InputField";
 import CalculateButton from "../components/CalculateButton";
 import ResultCard from "../components/ResultCard";
@@ -9,6 +9,7 @@ const SimpleInterest = ({ t }) => {
   const [time, setTime] = useState("");
   const [result, setResult] = useState(null);
   const [timeUnit, setTimeUnit] = useState("years");
+  const resultRef = useRef(null);
   const calculateSimpleInterest = () => {
     const p = Number(principal);
     const r = Number(rate);
@@ -26,6 +27,12 @@ const SimpleInterest = ({ t }) => {
     const totalAmount = p + totalInterest;
 
     setResult({ totalInterest, totalAmount });
+    setTimeout(() => {
+      resultRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 100);
   };
 
   return (
@@ -54,7 +61,7 @@ const SimpleInterest = ({ t }) => {
         setTimeUnit={setTimeUnit}
       />
       <CalculateButton onClick={calculateSimpleInterest} t={t} />
-      <ResultCard result={result} t={t} />
+      <ResultCard result={result} t={t} resultRef={resultRef} />
     </div>
   );
 };

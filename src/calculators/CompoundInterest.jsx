@@ -3,7 +3,7 @@ import InputField from "../components/InputField";
 import CalculateButton from "../components/CalculateButton";
 import ResultCard from "../components/ResultCard";
 import CompoundFrequency from "../components/CompoundFrequency";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const CompoundInterest = ({ t }) => {
   const [principal, setPrincipal] = useState("");
@@ -13,6 +13,7 @@ const CompoundInterest = ({ t }) => {
   const [timeUnit, setTimeUnit] = useState("years");
   const [result, setResult] = useState(null);
   const [frequency, setFrequency] = useState("annually");
+  const resultRef = useRef(null);
   const frequencyMap = {
     annually: 12,
     "half-yearly": 6,
@@ -52,6 +53,12 @@ const CompoundInterest = ({ t }) => {
       totalInterest,
       totalAmount,
     });
+    setTimeout(() => {
+      resultRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 100);
   };
 
   return (
@@ -90,7 +97,7 @@ const CompoundInterest = ({ t }) => {
 
       <CalculateButton onClick={calculateCompoundInterest} t={t} />
 
-      <ResultCard result={result} t={t} />
+      <ResultCard result={result} t={t} resultRef={resultRef} />
     </div>
   );
 };
