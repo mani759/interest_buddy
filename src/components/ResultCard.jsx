@@ -1,4 +1,4 @@
-const ResultCard = ({ result, t, resultref }) => {
+const ResultCard = ({ result, t, resultRef }) => {
   if (!result) return null;
 
   const formatMoney = (value) => {
@@ -12,7 +12,7 @@ const ResultCard = ({ result, t, resultref }) => {
 
   return (
     <div
-      ref={resultref}
+      ref={resultRef}
       className="mt-5 overflow-hidden rounded-3xl bg-slate-900 p-5 text-white shadow-xl shadow-slate-900/10 sm:p-6"
     >
       <div className="mb-5 flex items-center justify-between">
